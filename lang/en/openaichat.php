@@ -106,3 +106,8 @@ $string['frequency_help'] = 'How much to penalize new tokens based on their exis
 $string['presence_help'] = 'How much to penalize new tokens based on whether they appear in the text so far. Increases the model\'s likelihood to talk about new topics.';
 
 $string['openaichat:seeopenailog'] = 'See the Open AI report log';
+
+$string['disclaimer'] = 'Attention! In this chat you communicate with ChatGPT. All information you enter here is sent to OpenAI and all information you receive in the chat comes from OpenAI-ChatGPT. You can find OpenAI\'s terms of use <a href="https://openai.com/de-DE/policies/eu-terms-of-use" class="alert-link">HERE</a>. The OpenAI-ChatGPT AI-Bot can make mistakes. Please check important information yourself.';
+$string['termsofuse'] = '<p><em>Terms of Use</em> Text</p>';
+$string['termsaccept'] = 'Accept Terms of Use';
+$string['termsdecline'] = 'Decline Terms of Use';

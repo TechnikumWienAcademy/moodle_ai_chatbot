@@ -22,12 +22,66 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+require_once($CFG->libdir.'/formslib.php');
+
+class termsacceptform extends \moodleform {
+    protected function definition()
+    {
+	global $PAGE;
+
+	$this->_form->addElement('hidden', 'id', $PAGE->cm->id);
+
+	$this->_form->addElement('html', get_string('termsofuse', 'mod_openaichat'));
+
+	$buttons = array();
+	$buttons[] = $this->_form->createElement('submit', 'termsaccept', get_string('termsaccept', 'mod_openaichat'));
+	$buttons[] = $this->_form->createElement('submit', 'termsdecline', get_string('termsdecline', 'mod_openaichat'));
+	$this->_form->addGroup($buttons, 'termsbuttons', '', ' ', false);
+    }
+}
+
 class mod_openaichat {
 
     public function render()
     {
-        $c = $this->get_content();
-        return '<div class="mod_openaichat"><p id="remaining-questions"></p>'.$c->text.$c->footer.'</div>';
+	global $PAGE, $USER, $DB;
+
+	$modid = $PAGE->cm->instance;
+	$userid = $USER->id;
+
+	$rowtermsaccepted = $DB->get_record('openaichat_usertermsofuse', array('modid' => $modid, 'userid' => $userid));
+	if( false !== $rowtermsaccepted && $rowtermsaccepted->termsofuseaccepted > 0 ) {
+	    $c = $this->get_content();
+	    return '<div class="mod_openaichat"><div class="alert alert-warning"><p>'.get_string('disclaimer', 'mod_openaichat').'</p></div><p id="remaining-questions"></p>'.$c->text.$c->footer.'</div>';
+	} else {
+	    $form = new termsacceptform();
+	    if( $form->is_submitted() ) {
+		$data = $form->get_data();
+		$termsacceptedtime = time();
+		$termsaccepted = isset($data->termsaccept) ? 1 : 0;
+		$redirecturl = isset($data->termsaccept)
+			     ? new moodle_url('/mod/openaichat/view.php', array('id' => $PAGE->cm->id))
+			     : new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
+
+		if( $rowtermsaccepted ) {
+		    $DB->update_record('openaichat_usertermsofuse', array(
+			'id' => $rowtermsaccepted->id,
+			'termsofuseaccepted' => $termsaccepted,
+			'termsofuseacceptedtime' => $termsacceptedtime
+		    ));
+		    redirect($redirecturl);
+		} else {
+		    $DB->insert_record('openaichat_usertermsofuse', array(
+			'modid' => $modid,
+			'userid' => $userid,
+			'termsofuseaccepted' => $termsaccepted,
+			'termsofuseacceptedtime' => $termsacceptedtime
+		    ));
+		    redirect($redirecturl);
+		}
+	    }
+	    return $form->display();
+	}
     }
 
     private function get_content() {
