@@ -30,6 +30,7 @@ class termsacceptform extends \moodleform {
 	global $PAGE;
 
 	$this->_form->addElement('hidden', 'id', $PAGE->cm->id);
+	$this->_form->setType('id', PARAM_INT);
 
 	$this->_form->addElement('html', get_string('termsofuse', 'mod_openaichat'));
 
@@ -80,7 +81,7 @@ class mod_openaichat {
 		    redirect($redirecturl);
 		}
 	    }
-	    return $form->display();
+	    return $form->render();
 	}
     }
 
