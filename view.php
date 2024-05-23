@@ -63,6 +63,8 @@ $PAGE->set_title(format_string($moduleinstance->name));
 $PAGE->set_heading(format_string($course->fullname));
 $PAGE->set_context($modulecontext);
 
+$rendered = $openai->render();
+
 echo $OUTPUT->header();
-echo $openai->render();
+echo $rendered;
 echo $OUTPUT->footer();
