@@ -5,12 +5,17 @@ Die Fachhochschule Technikum Wien setzt neue Maßstäbe in der digitalen Lehre: 
 Die FHTW suchte nach einem passgenauen Tool, das in individuellen Kursen in Moodle integriert werden konnte und mit den vorliegenden Datenschutzbestimmungen in Einklang steht. Ziel war es, den Studierenden eine verbesserte Unterstützung im Eigenstudium zu bieten. Aus diesem Bedarf heraus wurde das AI-Bot Moodle-Plugin entwickelt und wird nun seit Mai 2024 getestet und anschließend via Github für alle Moodle-User*innen weltweit zur Verfügung gestellt. Das Ziel ist es, den Einsatz von KI in der Lehre kontinuierlich zu verbessern und auf die Bedürfnisse der Studierenden einzugehen. Das Plugin bietet einen Chat mit ChatGPT, dabei werden keine Inhalte aus der Lehrveranstaltung hochgeladen.
 Schlüsselmerkmale des AI-Bot Plugins:
 
-    OpenAI-Integration: Das Herzstück des Plugins ist die Integration von OpenAI’s fortschrittlichem KI-Modell ChatGPT 4.0.
-    Fragen-/Prompt-Limit: Lehrende können festlegen, wie viele Fragen oder Prompts jeder Studierende im Moodle-Kurs stellen darf, um eine faire Nutzung sicherzustellen. Z.B. Kann festgelegt werden, dass jede/r Studierende max. 10 Fragen pro Themengebiet stellen darf.
-    Chat und Assistant: Studierende können per Chat interaktive Konversationen mit dem AI-Bot führen. In Zukunft soll, nach ausführlicher rechtlicher Prüfung, ein Assistant für spezifischere und aufgabenorientierte Antworten ebenfalls verfügbar sein.
-    Completion Prompt: Dieses Feld ermöglicht es Lehrenden, Themenbereiche festzulegen, zu denen der Chat Antworten geben darf, um die Interaktionen zu steuern.
-    Source of Truth: Lehrende können eine verlässliche Informationsquelle angeben, die die KI bei der Beantwortung von Fragen berücksichtigen soll, um Relevanz und Genauigkeit zu gewährleisten.
-    Anonymisierter Log-Bericht: Der/die Lehrende kann sehen, welche Fragen gestellt wurden und welche Antworten ChatGPT geliefert hat. Dies optiminiert die Zusammenarbeit mit den Studierenden in der Präsenz durch passgenaue Vorbereitung aufgrund der Logs. 
+OpenAI-Integration: Das Herzstück des Plugins ist die Integration von OpenAI’s fortschrittlichem KI-Modell ChatGPT 4.0.
+
+Fragen-/Prompt-Limit: Lehrende können festlegen, wie viele Fragen oder Prompts jeder Studierende im Moodle-Kurs stellen darf, um eine faire Nutzung sicherzustellen. Z.B. Kann festgelegt werden, dass jede/r Studierende max. 10 Fragen pro Themengebiet stellen darf.
+
+Chat und Assistant: Studierende können per Chat interaktive Konversationen mit dem AI-Bot führen. In Zukunft soll, nach ausführlicher rechtlicher Prüfung, ein Assistant für spezifischere und aufgabenorientierte Antworten ebenfalls verfügbar sein.
+
+Completion Prompt: Dieses Feld ermöglicht es Lehrenden, Themenbereiche festzulegen, zu denen der Chat Antworten geben darf, um die Interaktionen zu steuern.
+
+Source of Truth: Lehrende können eine verlässliche Informationsquelle angeben, die die KI bei der Beantwortung von Fragen berücksichtigen soll, um Relevanz und Genauigkeit zu gewährleisten.
+
+Anonymisierter Log-Bericht: Der/die Lehrende kann sehen, welche Fragen gestellt wurden und welche Antworten ChatGPT geliefert hat. Dies optiminiert die Zusammenarbeit mit den Studierenden in der Präsenz durch passgenaue Vorbereitung aufgrund der Logs. 
 
 
 „Das AI-Bot Moodle-Plugin markiert einen bedeutenden Schritt in Richtung einer modernen, interaktiven Lernerfahrung, die den individuellen Bedürfnissen der Studierenden gerecht wird. Durch die Integration von ChatGPT 4.0 können Studierende neben den Top-Lektor*innen auf hochwertige Lehrunterstützung im Eigenstudium zugreifen, die ihnen hilft, komplexe Konzepte besser zu verstehen und ihr eigenes Lernen zu vertiefen“, sagt Geschäftsführer Florian Eckkrammer.
