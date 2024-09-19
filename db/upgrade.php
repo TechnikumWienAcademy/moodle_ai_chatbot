@@ -45,7 +45,7 @@ function xmldb_openaichat_upgrade($oldversion) {
         if (!$dbman->field_exists($table, $field)) {
             $dbman->add_field($table, $field);
         }
-
+$field->
         // Openaichat savepoint reached.
         upgrade_mod_savepoint(true, 2024022200, 'openaichat');
     }
@@ -70,6 +70,19 @@ function xmldb_openaichat_upgrade($oldversion) {
             $dbman->create_table($table);
         }
         upgrade_mod_savepoint(true, 2024051701, 'openaichat');
+    }
+
+    if ($oldversion < 2024091901) {
+
+        // Changing precision of field apikey on table openaichat to (255).
+        $table = new xmldb_table('openaichat');
+        $field = new xmldb_field('apikey', XMLDB_TYPE_CHAR, '255', null, null, null, null, 'introformat');
+
+        // Launch change of precision for field apikey.
+        $dbman->change_field_precision($table, $field);
+
+        // Openaichat savepoint reached.
+        upgrade_mod_savepoint(true, 2024091901, 'openaichat');
     }
 
     return true;
