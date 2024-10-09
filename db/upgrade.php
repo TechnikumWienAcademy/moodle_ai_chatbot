@@ -45,7 +45,7 @@ function xmldb_openaichat_upgrade($oldversion) {
         if (!$dbman->field_exists($table, $field)) {
             $dbman->add_field($table, $field);
         }
-$field->
+
         // Openaichat savepoint reached.
         upgrade_mod_savepoint(true, 2024022200, 'openaichat');
     }
