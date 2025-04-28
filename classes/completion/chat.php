@@ -27,11 +27,9 @@ namespace mod_openaichat\completion;
 //use block_openai_chat\completion;
 defined('MOODLE_INTERNAL') || die;
 
-class chat extends \mod_openaichat\completion
-{
+class chat extends \mod_openaichat\completion {
 
-    public function __construct($model, $message, $history, $mod_settings, $thread_id = null)
-    {
+    public function __construct($model, $message, $history, $mod_settings, $thread_id = null) {
         parent::__construct($model, $message, $history, $mod_settings);
     }
 
@@ -39,8 +37,7 @@ class chat extends \mod_openaichat\completion
      * Given everything we know after constructing the parent, create a completion by constructing the prompt and making the api call
      * @return JSON: The API response from OpenAI
      */
-    public function create_completion($context)
-    {
+    public function create_completion($context) {
 
         if ($this->sourceoftruth) {
             $this->sourceoftruth = format_string($this->sourceoftruth, true, ['context' => $context]);
@@ -61,8 +58,7 @@ class chat extends \mod_openaichat\completion
      * Format the history JSON into a string that we can pass in the prompt
      * @return string: The string representing the chat history to add to the prompt
      */
-    private function format_history()
-    {
+    private function format_history() {
         $history = [];
         foreach ($this->history as $index => $message) {
             $role = $index % 2 === 0 ? 'user' : 'assistant';
@@ -75,8 +71,7 @@ class chat extends \mod_openaichat\completion
      * Make the actual API call to OpenAI
      * @return JSON: The response from OpenAI
      */
-    private function make_api_call($history)
-    {
+    private function make_api_call($history) {
 
         $curlbody = [
             "model" => $this->model,
