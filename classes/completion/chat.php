@@ -20,7 +20,7 @@
  * @package    mod_openaichat
  * @copyright  2024 think modular
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
-*/
+ */
 
 namespace mod_openaichat\completion;
 //namespace block_openai_chat\completion;
@@ -83,7 +83,17 @@ class chat extends \mod_openaichat\completion {
             "presence_penalty" => (float) $this->presence,
             "stop" => $this->username . ":"
         ];
-       // echo json_encode($curlbody);exit;
+
+        if (str_starts_with($this->model, "o")) {
+            $curlbody = [
+                "model" => $this->model,
+                "messages" => $history,
+                "max_completion_tokens" => (int) $this->maxlength
+            ];
+        }
+
+
+        // echo json_encode($curlbody);exit;
         //echo json_encode(["message"=>$this->model]);exit;
 
         $curl = new \curl();
